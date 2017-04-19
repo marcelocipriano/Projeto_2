@@ -1,0 +1,17 @@
+body {
+	background-color: ;
+}
+
+div {
+	width: 400px;
+	height: 250px;
+	background-color: white;
+	border-radius: 20px;
+}
+#email {
+	width: 250px;
+}
+
+#senha {
+	width: 250px;
+}
