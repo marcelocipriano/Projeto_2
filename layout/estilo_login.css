@@ -1,0 +1,51 @@
+body {
+	background-color: #A5ACAF;
+	margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+#rodape {
+	height: 50px;
+	width: 100%;
+	background-color: #002244;
+	border-color: #002244;
+	border-style: solid;
+}
+
+#rodape2 {
+	height: 10px;
+	width: 100%;
+	background-color: #69BE28;
+	border-color: #69BE28;
+	border-style: solid;	
+}
+
+#auth {
+	width: 400px;
+	height: 170px;
+	background-color: #002244;
+	border-radius: 20px;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+
+	font-family: 'Roboto', sans-serif;
+	color: #002244;
+	font-weight: 300;
+	font-size: 50;
+	padding-bottom: 15px;
+	text-shadow: 2px 2px #69BE28;
+
+}
+
+#email {
+	width: 250px;
+}
+
+#senha {
+	width: 250px;
+}
