@@ -1,10 +1,19 @@
+body {
+	background-color: #A5ACAF;
+}
+
 table {
 	width: 100%;
 }
 
 #menu {
-	font-size: 50px;
 	border: 1px solid black;
+	font-family: 'Roboto', sans-serif;
+	color: #002244;
+	font-weight: 300;
+	font-size: 50;
+	padding-bottom: 15px;
+	text-shadow: 2px 2px #69BE28;
 }
 
 #opcoes {

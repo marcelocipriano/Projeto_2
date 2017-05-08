@@ -22,15 +22,16 @@ if(	isset($_POST['email']) &&
 	
 	$query = odbc_exec($db, 
 					"SELECT 
-					nomeUsuario,
 					idUsuario,
+					loginUsuario,
+					senhaUsuario,
+					nomeUsuario,
 					tipoPerfil 
 					FROM Usuario
 					WHERE 
 					loginUsuario = '$email'
 					AND
-					senhaUsuario = 
-					HASHBYTES('SHA1','$senha')");
+					senhaUsuario = '$senha'");
 	$result = odbc_fetch_array($query);
 	
 	if(	!empty($result['idUsuario']) &&
@@ -49,5 +50,5 @@ if(	isset($_POST['email']) &&
 		$erro = 'Email ou Senha Incorretos';
 	}
 }
-include('index.tpl.php');
+include('login.php');
 ?>

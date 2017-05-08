@@ -1,16 +1,8 @@
 <?php
 
-/*$db_host = "10.135.0.53\sqledutsi";
-
-$db_name = "Kanino";
-
-$user = "TSI";
-
-$password = "SistemasInternet123";*/
-
 $db_host = "delta-pi.database.windows.net";
 
-$db_name = "Delta";
+$db_name = "delta";
 
 $user = "TSI";
 

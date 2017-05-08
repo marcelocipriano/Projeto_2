@@ -8,7 +8,7 @@
 		<div id="rodape2"></div>
 		<center>
 			<h1>Loja Virtual</h1>
-			<div id="auth">
+			<div id="auth"><br>
 				<?php
 				if(isset($erro))
 					echo "<font color='red'>".$erro."</font>";
