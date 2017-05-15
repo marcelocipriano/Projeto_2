@@ -17,13 +17,12 @@
 		<td bgcolor="gray">Estoque</td>
 		<td bgcolor="gray">Editar</td>
 		<td bgcolor="gray">Apagar</td>
-		<td bgcolor="gray"><a href='incluir_produto.php'>Gravar</a></td>
+		<td bgcolor="gray"><a href='incluir_produto.php'>Novo Produto</a></td>
 	</tr>
 
 <?php
 
 include ('../db/index.php');
-include('../auth/controle_de_acesso.php');
 
 if(isset($erro)){
 		echo "<center>$erro</center";
