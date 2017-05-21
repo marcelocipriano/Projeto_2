@@ -38,7 +38,7 @@ include('../menu/index.tpl.php');
 				?><br><br>
 			Estoque: <input type="text" name="estoque" value="<?php echo $array_produto['qtdMinEstoque']; ?>"><br><br>
 			Imagem: <input type="text" name="imagem"><br><br>
-			<input type="submit" value="Gravar" name="btnNovoProduto">
+			<input type="submit" value="Gravar" name="btnGravarProduto">
 		</form>
 	</body>
 </html>

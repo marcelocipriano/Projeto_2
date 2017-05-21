@@ -47,6 +47,7 @@ $query = odbc_exec($db, 'SELECT * FROM produto');
 				<td>{$result['ativoProduto']}</td>
 				<td>{$result['idUsuario']}</td>
 				<td>{$result['qtdMinEstoque']}</td>
+				<td><img src=\"data:image/jpeg;base64,".base64_encode($result['imagem'])."\"/></td>
 				<td><a href='index.php?acao=editar&id={$result['idProduto']}'>Editar</a></td>
 				<td><a href='index.php?acao=excluir&id={$result['idProduto']}'>Excluir</a></td>
 			</tr>";

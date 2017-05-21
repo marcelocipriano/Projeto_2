@@ -14,25 +14,25 @@ if(isset($_REQUEST['acao'])){
 		
 		case 'excluir':
 			if(is_numeric($_GET['id'])){
-				if($result = odbc_exec($db, "DELETE FROM Usuario WHERE IdUsuario = {$_GET['id']}")){
+				if($result = odbc_exec($db, "DELETE FROM Produto WHERE IdProduto = {$_GET['id']}")){
 					if(odbc_num_rows($result) > 0){
-					$msg = "Usuario excluido com sucesso";
+					$msg = "Produto excluido com sucesso";
 
 					}
 				}else{
-						$erro = "Erro ao excluir o usuario";
+						$erro = "Erro ao excluir o Produto";
 				}
 			}else{
 				$erro = "ID Invalido";
 			}
-			include('listar_usuario.php');
+			include('listar_produto.php');
 			break;
 	
 		case 'editar':
 		
 			$idProduto = is_numeric($_REQUEST['id']) ? $_REQUEST['id'] : 'NULL';
 		
-			if(isset($_POST['btnGravarUsuario'])){
+			if(isset($_POST['btnGravarProduto'])){
 		
 				//Trata nome
 				$nome = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['nome']);
@@ -49,13 +49,13 @@ if(isset($_REQUEST['acao'])){
 				//Tratar ID da Categoria
 				$categoria = $_POST['categoria'];
 				
-				//Tratar ID do Usuário
-				$usuario = $_SESSION['idUsuario'];
-				
 				//Tratar Ativo, se colocado qualquer valor é convertido em booleano: verdadeiro ou falso
 				$_POST['ativo'] = !isset($_POST['ativo']) ? 0 : $_POST['ativo'];
 				$ativo = (bool) $_POST['ativo'];
 				$ativo = $ativo === true ? 1 : 0;
+				
+				//Tratar ID do Usuário
+				$usuario = $_SESSION['idUsuario'];
 				
 				//Tratar Estoque
 				$estoque = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['estoque']);
@@ -63,13 +63,16 @@ if(isset($_REQUEST['acao'])){
 				if(odbc_exec($db, "	UPDATE 
 										Produto
 									SET
-										loginUsuario = '$email',
-										senhaUsuario = HASHBYTES('SHA1','$password'),
-										nomeUsuario = '$nome',
-										tipoPerfil = '$perfil',
-										usuarioAtivo = $ativo
+										nomeProduto = '$nome',
+										descProduto = '$descricao',
+										precProduto = '$preco',
+										descontoPromocao = '$desconto',
+										idCategoria = '$categoria',
+										ativoProduto = '$ativo',
+										idUsuario = '$usuario',
+										qtdMinEstoque = $estoque
 									WHERE
-										idUsuario = $idUsuario")){
+										idProduto = $idProduto")){
 					$msg = "Usu&aacute;rio gravado com sucesso";
 					include('listar_produto.php');
 					break;					
@@ -133,6 +136,9 @@ if(isset($_REQUEST['acao'])){
 		//Tratar Estoque
 		$estoque = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['estoque']);
 		
+		//Tratar Imagem
+		$imagem = 
+		
 		if(odbc_exec($db, "INSERT INTO produto
 							(nomeProduto,
 							descProduto,
@@ -155,7 +161,7 @@ if(isset($_REQUEST['acao'])){
 			$msg = "Produto Gravado com sucesso";
 		include('listar_produto.php');
 		}else{
-			$erro = "Erro ao gravar usuario";
+			$erro = "Erro ao gravar Produto";
 		}
 		
 	}

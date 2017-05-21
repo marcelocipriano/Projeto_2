@@ -29,7 +29,7 @@ include('../menu/index.tpl.php');
 						</select><br><br>
 			Ativo: <input type="radio" name="ativo" checked><br><br>
 			Estoque: <input type="text" name="estoque"><br><br>
-			Imagem: <input type="text" name="imagem"><br><br>
+			Imagem: <input type="file" name="imagem"><br><br>
 			<input type="submit" value="Gravar" name="btnNovoProduto">
 		</form>
 	</body>
