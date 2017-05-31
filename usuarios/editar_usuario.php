@@ -13,7 +13,7 @@ include('../menu/head.tpl.php');
 			Nome: <input type="text" name="nome" value="<?php echo $array_usuario['nomeUsuario']; ?>"><br><br>
 			E-mail: <input type="email" name="email" value="<?php echo $array_usuario['loginUsuario']; ?>"><br><br>
 			Senha: <input type="password" name="senha"><br><br>
-			Perfil: <select name="perfil" <?php
+			Perfil: <select name="perfil"> <?php
 				if($array_usuario['tipoPerfil'] == 'A'){
 					echo '<option value="A" selected>
 							Administrador

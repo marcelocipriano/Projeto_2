@@ -1,4 +1,5 @@
 <?php
+ini_set ('odbc.defaultlrl', 9000000);//muda configuração do PHP para trabalhar com imagens no DB
 include ('../db/index.php');
 include('../auth/controle_de_acesso.php');
 
@@ -37,10 +38,10 @@ if(isset($_REQUEST['acao'])){
 				//Trata nome
 				$nome = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['nome']);
 				
-				//Trata DescriÃ§Ã£o
+				//Trata Descrição
 				$descricao = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['descricao']);
 				
-				//Trata PreÃ§o
+				//Trata Preço
 				$preco = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['preco']);
 				
 				//Tratar Desconto
@@ -49,30 +50,48 @@ if(isset($_REQUEST['acao'])){
 				//Tratar ID da Categoria
 				$categoria = $_POST['categoria'];
 				
-				//Tratar Ativo, se colocado qualquer valor Ã© convertido em booleano: verdadeiro ou falso
+				//Tratar Ativo, se colocado qualquer valor é convertido em booleano: verdadeiro ou falso
 				$_POST['ativo'] = !isset($_POST['ativo']) ? 0 : $_POST['ativo'];
 				$ativo = (bool) $_POST['ativo'];
 				$ativo = $ativo === true ? 1 : 0;
 				
-				//Tratar ID do UsuÃ¡rio
+				//Tratar ID do Usuário
 				$usuario = $_SESSION['idUsuario'];
 				
 				//Tratar Estoque
 				$estoque = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['estoque']);
 				
-				if(odbc_exec($db, "	UPDATE 
+				//Tratar Imagem
+				$imagem = fopen($_FILES['imagem']['tmp_name'], 'rb');
+				$conteudo = fread($imagem, filesize($_FILES['imagem']['tmp_name']));
+				fclose($imagem);
+				
+				$stmt = odbc_prepare($db, "	UPDATE 
 										Produto
 									SET
-										nomeProduto = '$nome',
-										descProduto = '$descricao',
-										precProduto = '$preco',
-										descontoPromocao = '$desconto',
-										idCategoria = '$categoria',
-										ativoProduto = '$ativo',
-										idUsuario = '$usuario',
-										qtdMinEstoque = $estoque
+										nomeProduto = ?,
+										descProduto = ?,
+										precProduto = ?,
+										descontoPromocao = ?,
+										idCategoria = ?,
+										ativoProduto = ?,
+										idUsuario = ?,
+										qtdMinEstoque = ?,
+										imagem = ?
 									WHERE
-										idProduto = $idProduto")){
+										idProduto = $idProduto");
+				
+				
+				if(odbc_execute($stmt, array($nome,
+										$descricao,
+										$preco,
+										$desconto,
+										$categoria,
+										$ativo,
+										$usuario,
+										$estoque,
+										$conteudo
+										))){
 					$msg = "Usu&aacute;rio gravado com sucesso";
 					include('listar_produto.php');
 					break;					
@@ -80,7 +99,7 @@ if(isset($_REQUEST['acao'])){
 					$erro = "Erro ao gravar o usu&aacute;rio";
 				}
 			}
-		
+			
 			$query_produto	= odbc_exec($db, 'SELECT 
 									idProduto,
 									nomeProduto,
@@ -100,6 +119,25 @@ if(isset($_REQUEST['acao'])){
 			include('editar_produto.php');
 			
 			break;
+
+		case 'buscar':
+		
+			$nome = $_POST['nome'];
+			
+			$query = odbc_exec($db, "SELECT * FROM Produto WHERE nomeProduto LIKE '%".$nome."%'");
+			
+			$produtos_encotrados = array();
+			
+			$i = 0;
+				
+			while($result = odbc_fetch_array($query)){
+					$produtos_encotrados[$i] = $result;
+					$i++;
+			}
+						
+			include('listar_produto.php');
+			
+			break;
 		
 		default:
 			$erro = "A&ccedil;&atilde;o inv&aacute;lida";
@@ -113,10 +151,10 @@ if(isset($_REQUEST['acao'])){
 		//Trata nome
 		$nome = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['nome']);
 		
-		//Trata DescriÃ§Ã£o
+		//Trata Descrição
 		$descricao = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['descricao']);
 		
-		//Trata PreÃ§o
+		//Trata Preço
 		$preco = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['preco']);
 		
 		//Tratar Desconto
@@ -125,10 +163,10 @@ if(isset($_REQUEST['acao'])){
 		//Tratar ID da Categoria
 		$categoria = $_POST['categoria'];
 		
-		//Tratar ID do UsuÃ¡rio
+		//Tratar ID do Usuário
 		$usuario = $_SESSION['idUsuario'];
 		
-		//Tratar Ativo, se colocado qualquer valor Ã© convertido em booleano: verdadeiro ou falso
+		//Tratar Ativo, se colocado qualquer valor é convertido em booleano: verdadeiro ou falso
 		$_POST['ativo'] = !isset($_POST['ativo']) ? 0 : $_POST['ativo'];
 		$ativo = (bool) $_POST['ativo'];
 		$ativo = $ativo === true ? 1 : 0;
@@ -137,9 +175,11 @@ if(isset($_REQUEST['acao'])){
 		$estoque = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['estoque']);
 		
 		//Tratar Imagem
-		$imagem = 
+		$imagem = fopen($_FILES['imagem']['tmp_name'], 'rb');
+		$conteudo = fread($imagem, filesize($_FILES['imagem']['tmp_name']));
+		fclose($imagem);
 		
-		if(odbc_exec($db, "INSERT INTO produto
+		$stmt = odbc_prepare($db, "INSERT INTO produto
 							(nomeProduto,
 							descProduto,
 							precProduto,
@@ -147,17 +187,21 @@ if(isset($_REQUEST['acao'])){
 							idCategoria,
 							ativoProduto,
 							idUsuario,
-							qtdMinEstoque)
+							qtdMinEstoque,
+							imagem)
 						VALUES
-							('$nome',
-							'$descricao',
-							'$preco',
-							'$desconto',
-							'$categoria',
-							'$ativo',
-							'$usuario',
-							$estoque)
-							")){
+							(?,?,?,?,?,?,?,?,?)
+							");
+							
+		if(odbc_execute($stmt, array($nome,
+							$descricao,
+							$preco,
+							$desconto,
+							$categoria,
+							$ativo,
+							$usuario,
+							$estoque,
+							$conteudo))){
 			$msg = "Produto Gravado com sucesso";
 		include('listar_produto.php');
 		}else{

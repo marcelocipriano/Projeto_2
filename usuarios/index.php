@@ -76,12 +76,12 @@ if(isset($_REQUEST['acao'])){
 				}else{
 					$erro = "Erro ao gravar o usu&aacute;rio";
 				}
+				echo odbc_errormsg($db);
 			}
 		
-			$query_usuario
-				= odbc_exec($db, 'SELECT 
-									idUsuario,
+			$query_usuario	= odbc_exec($db, 'SELECT
 									loginUsuario,
+									senhaUsuario,
 									nomeUsuario,
 									tipoPerfil,
 									usuarioAtivo
@@ -89,11 +89,26 @@ if(isset($_REQUEST['acao'])){
 									Usuario
 								WHERE
 									idUsuario = '.$idUsuario);
-			$array_usuario 
-				= odbc_fetch_array($query_usuario);
+			$array_usuario = odbc_fetch_array($query_usuario);
 		
 			include('editar_usuario.php');
 			
+			break;
+		
+		case 'buscar':
+		
+			$nome = $_POST['nome'];
+			
+			$query = odbc_exec($db, "SELECT * FROM Usuario WHERE nomeUsuario LIKE '%".$nome."%'");
+			$query2 = odbc_exec($db, "SELECT * FROM Produto WHERE nomeProduto LIKE '%".$nome."%'");
+
+			if(odbc_num_rows($query) > 0){
+				include('listar_usuario.php');
+			}elseif(odbc_num_rows($query2) > 0){
+				include('../produtos/listar_produto.php');
+			}else{
+				$msg = "Nenhuma Informação Encontrada!";
+			}
 			break;
 		
 		default:
@@ -122,7 +137,7 @@ if(isset($_REQUEST['acao'])){
 		//Tratar Perfil
 		$perfil = $_POST['perfil'] != 'A' && $_POST['perfil'] != 'C' ? 'C': $_POST['perfil'];
 		
-		//Tratar Ativo, se colocado qualquer valor Ã© convertido em booleano: verdadeiro ou falso
+		//Tratar Ativo, se colocado qualquer valor é convertido em booleano: verdadeiro ou falso
 		$_POST['ativo'] = !isset($_POST['ativo']) ? 0 : $_POST['ativo'];
 		$ativo = (bool) $_POST['ativo'];
 		$ativo = $ativo === true ? 1 : 0;

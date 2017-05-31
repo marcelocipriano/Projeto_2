@@ -11,6 +11,4 @@ if (!isset($_SESSION['idUsuario']) ||
 	exit();
 }
 
-
-
 ?>

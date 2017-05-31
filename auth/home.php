@@ -11,9 +11,9 @@
 			<div id="texto">		
 			<h1>Delta Materiais Esportivos</h1>
 
-			<h3>Bem-vindo √† loja virtual de material esportivo Delta!</h3>
+			<h3>Bem-vindo ‡ loja virtual de material esportivo Delta!</h3>
 
-			Esta loja foi criada para o Projeto Integrador do curso de Sistemas para Internet do Centro Universit√°rio Senac.
+			Esta loja foi criada para o Projeto Integrador do curso de Sistemas para Internet do Centro Universit·rio Senac.
 			</div>
 
 			<div id="menu">

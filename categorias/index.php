@@ -37,7 +37,7 @@ if(isset($_REQUEST['acao'])){
 				//trata nome
 				$nome = preg_replace("/[^a-zA-Z0-9 ]+/", "", $_POST['nome']);
 		
-				//trata a descriÃ§Ã£o
+				//trata a descrição
 				$descricao = preg_replace("/[^a-zA-Z0-9 ]+/", "", $_POST['descricao']);
 				
 				if(odbc_exec($db, "	UPDATE 
@@ -81,7 +81,7 @@ if(isset($_REQUEST['acao'])){
 		//Trata nome
 		$nome = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['nome']);
 		
-		//trata descriÃ§Ã£o
+		//trata descrição
 		$descricao = preg_replace("/[^a-z A-Z 0-9 ]+/", "", $_POST['descricao']);
 		
 		if(odbc_exec($db, "INSERT INTO Categoria

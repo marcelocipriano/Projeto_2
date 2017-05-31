@@ -8,7 +8,7 @@
 	<tr>
 		<td bgcolor="gray">ID Categoria</td>
 		<td bgcolor="gray">Categoria</td>
-		<td bgcolor="gray">DescriÃ§Ã£o</td>
+		<td bgcolor="gray">Descrição</td>
 		<td bgcolor="gray">Editar</td>
 		<td bgcolor="gray">Apagar</td>
 		<td bgcolor="gray"><a href='incluir_categoria.php'>Nova Categoria</a></td>

@@ -13,13 +13,12 @@
 		<td bgcolor="gray">Ativo</td>
 		<td bgcolor="gray">Editar</td>
 		<td bgcolor="gray">Apagar</td>
-		<td bgcolor="gray"><a href='incluir_usuario.php'>Gravar</a></td>
+		<td bgcolor="gray"><a href='incluir_usuario.php'>Novo Usuário</a></td>
 	</tr>
 
 <?php
 
 include ('../db/index.php');
-include('../auth/controle_de_acesso.php');
 
 if(isset($erro)){
 		echo "<center>$erro</center";
@@ -30,21 +29,42 @@ if(isset($erro)){
 
 	}
 
-$query = odbc_exec($db, 'SELECT * FROM Usuario');	
+	if(isset($_POST['buscarUsuario'])){
 	
-	while ($result = odbc_fetch_array($query)){
+	
 		
-		echo " <tr>
-				<td>{$result['idUsuario']}</td>
-				<td>{$result['loginUsuario']}</td>
-				<td>{$result['nomeUsuario']}</td>
-				<td>{$result['tipoPerfil']}</td>
-				<td>{$result['usuarioAtivo']}</td>
-				<td><a href='index.php?acao=editar&id={$result['idUsuario']}'>Editar</a></td>
-				<td><a href='index.php?acao=excluir&id={$result['idUsuario']}'>Excluir</a></td>
-			</tr>";
-	}
 
+			while ($result = odbc_fetch_array($query)){
+				
+				echo " <tr>
+						<td>{$result['idUsuario']}</td>
+						<td>{$result['loginUsuario']}</td>
+						<td>{$result['nomeUsuario']}</td>
+						<td>{$result['tipoPerfil']}</td>
+						<td>{$result['usuarioAtivo']}</td>
+						<td><a href='index.php?acao=editar&id={$result['idUsuario']}'>Editar</a></td>
+						<td><a href='index.php?acao=excluir&id={$result['idUsuario']}'>Excluir</a></td>
+					</tr>";
+				
+			}	
+		
+	}else{
+	
+		$query = odbc_exec($db, 'SELECT * FROM Usuario');	
+			
+			while ($result = odbc_fetch_array($query)){
+				
+				echo " <tr>
+						<td>{$result['idUsuario']}</td>
+						<td>{$result['loginUsuario']}</td>
+						<td>{$result['nomeUsuario']}</td>
+						<td>{$result['tipoPerfil']}</td>
+						<td>{$result['usuarioAtivo']}</td>
+						<td><a href='index.php?acao=editar&id={$result['idUsuario']}'>Editar</a></td>
+						<td><a href='index.php?acao=excluir&id={$result['idUsuario']}'>Excluir</a></td>
+					</tr>";
+			}
+	}
 ?>
 </table><br><br>
 <center><a href='../logout'>Sair</a></center>

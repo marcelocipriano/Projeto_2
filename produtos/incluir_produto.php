@@ -8,10 +8,10 @@ include('../menu/index.tpl.php');
 	<meta charset="ISO-8859-1"/>
 	</head>
 	<body>
-		<form method="post" action="index.php">
+		<form method="post" action="index.php" enctype="multipart/form-data">
 			Nome: <input type="text" name="nome"><br><br>
-			DescriÃ§Ã£o: <input type="text" name="descricao"><br><br>
-			PreÃ§o: <input type="text" name="preco"><br><br>
+			Descrição: <input type="text" name="descricao"><br><br>
+			Preço: <input type="text" name="preco"><br><br>
 			Desconto: <input type="text" name="desconto"><br><br>
 			Categoria: <select name="categoria">
 						<?php
