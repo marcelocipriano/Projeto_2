@@ -65,10 +65,18 @@ table {
 form {
 	width: 300px;
 	float: right;
-	margin-right:100px;
+	margin-right: 150px;
 	margin-top: -27px;
 }
 
 #texto {
 	width: 200px;
+}
+
+#sair {
+	color: #69BE28;
+	float: right;
+	margin-right: 50px;
+	margin-top: -27px;
+	text-decoration: none;
 }

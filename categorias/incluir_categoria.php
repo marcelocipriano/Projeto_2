@@ -10,7 +10,7 @@ include('../menu/index.tpl.php');
 	<body>
 		<form method="post" action="index.php">
 			Nome: <input type="text" name="nome"><br><br>
-			Descrição: <input type="text" name="descricao"><br><br>
+			DescriÃ§Ã£o: <input type="text" name="descricao"><br><br>
 			<input type="submit" value="Gravar" name="btnNovaCategoria">
 		</form>
 	</body>

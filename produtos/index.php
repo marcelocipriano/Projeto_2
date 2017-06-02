@@ -17,11 +17,11 @@ if(isset($_REQUEST['acao'])){
 			if(is_numeric($_GET['id'])){
 				if($result = odbc_exec($db, "DELETE FROM Produto WHERE IdProduto = {$_GET['id']}")){
 					if(odbc_num_rows($result) > 0){
-					$msg = "Produto excluido com sucesso";
+					$msg = "Produto excluido com sucesso!";
 
 					}
 				}else{
-						$erro = "Erro ao excluir o Produto";
+						$erro = "Erro ao excluir Produto!";
 				}
 			}else{
 				$erro = "ID Invalido";
@@ -36,16 +36,16 @@ if(isset($_REQUEST['acao'])){
 			if(isset($_POST['btnGravarProduto'])){
 		
 				//Trata nome
-				$nome = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['nome']);
+				$nome = $_POST['nome'];
 				
 				//Trata Descrição
-				$descricao = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['descricao']);
+				$descricao = $_POST['descricao'];
 				
 				//Trata Preço
-				$preco = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['preco']);
+				$preco = $_POST['preco'];
 				
 				//Tratar Desconto
-				$desconto = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['desconto']);
+				$desconto = $_POST['desconto'];
 				
 				//Tratar ID da Categoria
 				$categoria = $_POST['categoria'];
@@ -59,7 +59,7 @@ if(isset($_REQUEST['acao'])){
 				$usuario = $_SESSION['idUsuario'];
 				
 				//Tratar Estoque
-				$estoque = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['estoque']);
+				$estoque = $_POST['estoque'];
 				
 				//Tratar Imagem
 				$imagem = fopen($_FILES['imagem']['tmp_name'], 'rb');
@@ -92,11 +92,11 @@ if(isset($_REQUEST['acao'])){
 										$estoque,
 										$conteudo
 										))){
-					$msg = "Usu&aacute;rio gravado com sucesso";
+					$msg = "Produto editado com sucesso!";
 					include('listar_produto.php');
 					break;					
 				}else{
-					$erro = "Erro ao gravar o usu&aacute;rio";
+					$erro = "Erro ao editar produto!";
 				}
 			}
 			
@@ -140,7 +140,7 @@ if(isset($_REQUEST['acao'])){
 			break;
 		
 		default:
-			$erro = "A&ccedil;&atilde;o inv&aacute;lida";
+			$erro = "A&ccedil;&atilde;o inv&aacute;lida!";
 	}
 	
 }else{
@@ -188,7 +188,7 @@ if(isset($_REQUEST['acao'])){
 							ativoProduto,
 							idUsuario,
 							qtdMinEstoque,
-							imagem)
+							imagem)							
 						VALUES
 							(?,?,?,?,?,?,?,?,?)
 							");
@@ -202,10 +202,11 @@ if(isset($_REQUEST['acao'])){
 							$usuario,
 							$estoque,
 							$conteudo))){
-			$msg = "Produto Gravado com sucesso";
+			$msg = "Produto criado com sucesso!";
+			
 		include('listar_produto.php');
 		}else{
-			$erro = "Erro ao gravar Produto";
+			$erro = "Erro ao criar Produto!";
 		}
 		
 	}

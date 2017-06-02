@@ -1,6 +1,5 @@
 <?php
 include('../menu/index.tpl.php');
-include('../menu/head.tpl.php');
 ?>
 <br><br><html>
 	<head>

@@ -1,17 +1,14 @@
 <?php
 	include('../menu/index.tpl.php');
-	include('../menu/head.tpl.php');
-
 ?>
 
-<br><table width="100%" border="1">
+<br><table width="80%">
 	<tr>
-		<td bgcolor="gray">ID Categoria</td>
-		<td bgcolor="gray">Categoria</td>
-		<td bgcolor="gray">Descrição</td>
-		<td bgcolor="gray">Editar</td>
-		<td bgcolor="gray">Apagar</td>
-		<td bgcolor="gray"><a href='incluir_categoria.php'>Nova Categoria</a></td>
+		<th bgcolor="gray">Categoria</th>
+		<th bgcolor="gray">DescriÃ§Ã£o</th>
+		<th bgcolor="gray">Editar</th>
+		<th bgcolor="gray">Apagar</th>
+		<th bgcolor="gray"><a href='incluir_categoria.php'>+ Nova Categoria</a></th>
 	</tr>
 
 <?php
@@ -19,20 +16,30 @@
 include ('../db/index.php');
 
 if(isset($erro)){
-		echo "<center>$erro</center";
+		echo "<center style='color:#69BE28'>$erro</center><br>";
 	}
 
 	if (isset($msg)){
-		echo "<center>$msg</center";
+		echo "<center style='color:#69BE28'>$msg</center><br>";
 
 	}
 
 $query = odbc_exec($db, 'SELECT * FROM categoria');	
 	
+							$i = 0;
+
 	while ($result = odbc_fetch_array($query)){
 		
-		echo " <tr>
-				<td>{$result['idCategoria']}</td>
+							$i++;
+
+     						if ($i % 2 == 0){
+        						$cor = "#EBEBEB";
+        					}else{ 
+        						$cor = "#CCCCCC";
+        					}		
+
+
+		echo " <tr bgcolor=".$cor.">
 				<td>{$result['nomeCategoria']}</td>
 				<td>{$result['descCategoria']}</td>
 				<td><a href='index.php?acao=editar&id={$result['idCategoria']}'>Editar</a></td>
@@ -42,4 +49,3 @@ $query = odbc_exec($db, 'SELECT * FROM categoria');
 
 ?>
 </table><br><br>
-<center><a href='../logout'>Sair</a></center>

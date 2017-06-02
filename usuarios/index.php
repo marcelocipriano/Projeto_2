@@ -16,11 +16,11 @@ if(isset($_REQUEST['acao'])){
 			if(is_numeric($_GET['id'])){
 				if($result = odbc_exec($db, "DELETE FROM Usuario WHERE IdUsuario = {$_GET['id']}")){
 					if(odbc_num_rows($result) > 0){
-					$msg = "Usuario excluido com sucesso";
+					$msg = "Usuario excluido com sucesso!";
 
 					}
 				}else{
-						$erro = "Erro ao excluir o usuario";
+						$erro = "Erro ao excluir o usuario!";
 				}
 			}else{
 				$erro = "ID Invalido";
@@ -70,11 +70,11 @@ if(isset($_REQUEST['acao'])){
 										usuarioAtivo = $ativo
 									WHERE
 										idUsuario = $idUsuario")){
-					$msg = "Usu&aacute;rio gravado com sucesso";
+					$msg = "Usu&aacute;rio gravado com sucesso!";
 					include('listar_usuario.php');
 					break;					
 				}else{
-					$erro = "Erro ao gravar o usu&aacute;rio";
+					$erro = "Erro ao gravar o usu&aacute;rio!";
 				}
 				echo odbc_errormsg($db);
 			}
@@ -98,21 +98,23 @@ if(isset($_REQUEST['acao'])){
 		case 'buscar':
 		
 			$nome = $_POST['nome'];
-			
+
 			$query = odbc_exec($db, "SELECT * FROM Usuario WHERE nomeUsuario LIKE '%".$nome."%'");
 			$query2 = odbc_exec($db, "SELECT * FROM Produto WHERE nomeProduto LIKE '%".$nome."%'");
 
 			if(odbc_num_rows($query) > 0){
+			
 				include('listar_usuario.php');
 			}elseif(odbc_num_rows($query2) > 0){
-				include('../produtos/listar_produto.php');
+
+				include('../produtos/listar_produto.php');	
 			}else{
-				$msg = "Nenhuma Informação Encontrada!";
+				echo "nada...";
 			}
 			break;
 		
 		default:
-			$erro = "A&ccedil;&atilde;o inv&aacute;lida";
+			$erro = "A&ccedil;&atilde;o inv&aacute;lida!";
 	}
 	
 }else{
@@ -155,10 +157,10 @@ if(isset($_REQUEST['acao'])){
 							'$perfil',
 							$ativo)
 							")){
-			$msg = "Usuario Gravado com sucesso";
+			$msg = "Usuario Gravado com sucesso!";
 		include('listar_usuario.php');
 		}else{
-			$erro = "Erro ao gravar usuario";
+			$erro = "Erro ao gravar usuario!";
 		}
 		
 	}

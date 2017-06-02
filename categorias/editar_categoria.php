@@ -10,7 +10,7 @@ include('../menu/index.tpl.php');
 	<body>
 		<form method="post" action="index.php">
 			Nome da Categoria: <input type="text" name="nome" value="<?php echo $array_categoria['nomeCategoria']; ?>"><br><br>
-			Descrição: <input type="text" name="descricao" value="<?php echo $array_categoria['descCategoria']; ?>"><br><br>
+			DescriÃ§Ã£o: <input type="text" name="descricao" value="<?php echo $array_categoria['descCategoria']; ?>"><br><br>
 			<input type="hidden" name="id" value="<?php echo $array_categoria['idCategoria']; ?>">
 			<input type="hidden" name="acao" value="editar">
 			<input type="submit" value="Gravar" name="btnGravarCategoria">

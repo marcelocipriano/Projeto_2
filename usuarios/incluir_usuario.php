@@ -1,7 +1,7 @@
 <?php
-include('../menu/index.tpl.php');
-include('../menu/head.tpl.php');
+	include('../menu/index.tpl.php');
 ?>
+
 <br><br><html>
 	<head>
 	<title>Loja Virtual</title>

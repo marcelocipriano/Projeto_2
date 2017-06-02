@@ -16,11 +16,11 @@ if(isset($_REQUEST['acao'])){
 			if(is_numeric($_GET['id'])){
 				if($result = odbc_exec($db, "DELETE FROM Categoria WHERE IdCategoria = {$_GET['id']}")){
 					if(odbc_num_rows($result) > 0){
-					$msg = "Categoria excluida com sucesso";
+					$msg = "Categoria excluida com sucesso!";
 
 					}
 				}else{
-						$erro = "Erro ao excluir a categoria";
+						$erro = "Erro ao excluir a categoria!";
 				}
 			}else{
 				$erro = "ID Invalido";
@@ -47,11 +47,11 @@ if(isset($_REQUEST['acao'])){
 										descCategoria = '$descricao'
 									WHERE
 										idCategoria = $idCategoria")){
-					$msg = "Usu&aacute;rio gravado com sucesso";
+					$msg = "Usu&aacute;rio gravado com sucesso!";
 					include('listar_categoria.php');
 					break;					
 				}else{
-					$erro = "Erro ao gravar o usu&aacute;rio";
+					$erro = "Erro ao gravar o usu&aacute;rio!";
 				}
 			}
 		
@@ -70,7 +70,7 @@ if(isset($_REQUEST['acao'])){
 			break;
 		
 		default:
-			$erro = "A&ccedil;&atilde;o inv&aacute;lida";
+			$erro = "A&ccedil;&atilde;o inv&aacute;lida!";
 	}
 	
 }else{
@@ -91,10 +91,10 @@ if(isset($_REQUEST['acao'])){
 							('$nome',
 							'$descricao')
 							")){
-			$msg = "Categoria Gravada com sucesso";
+			$msg = "Categoria Gravada com sucesso!";
 		include('listar_categoria.php');
 		}else{
-			$erro = "Erro ao gravar Categoria";
+			$erro = "Erro ao gravar Categoria!";
 		}
 		
 	}

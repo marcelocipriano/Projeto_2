@@ -1,43 +1,52 @@
 <?php
 	include('../menu/index.tpl.php');
-	include('../menu/head.tpl.php');
-
 ?>
 
-<br><table width="100%" border="1">
-	<tr>
-		<td bgcolor="gray">ID Usuario</td>
-		<td bgcolor="gray">Login</td>
-		<td bgcolor="gray">Nome</td>
-		<td bgcolor="gray">Perfil</td>
-		<td bgcolor="gray">Ativo</td>
-		<td bgcolor="gray">Editar</td>
-		<td bgcolor="gray">Apagar</td>
-		<td bgcolor="gray"><a href='incluir_usuario.php'>Novo Usuário</a></td>
+<br><table width="80%" border="0">
+	<thead>
+	<tr valign="top">
+		<th bgcolor="gray">Login</th>
+		<th bgcolor="gray">Nome</th>
+		<th bgcolor="gray">Perfil</th>
+		<th bgcolor="gray">Ativo</th>
+		<th bgcolor="gray">Editar</th>
+		<th bgcolor="gray">Apagar</th>
+		<th bgcolor="gray"><a href='incluir_usuario.php'>+ Novo Usu&aacute;rio</a></th>
 	</tr>
+	</thead>
 
 <?php
 
 include ('../db/index.php');
 
 if(isset($erro)){
-		echo "<center>$erro</center";
+		echo "<center style='color:#69BE28'>$erro</center><br>";
 	}
 
 	if (isset($msg)){
-		echo "<center>$msg</center";
+		echo "<center style='color:#69BE28'>$msg</center><br>";
 
 	}
-
-	if(isset($_POST['buscarUsuario'])){
 	
-	
-		
 
+
+	if(isset($_POST['buscar'])){
+	
+			$query = odbc_exec($db, "SELECT * FROM Usuario WHERE nomeUsuario LIKE '%".$nome."%'");
+
+				$i = 0;
+			
 			while ($result = odbc_fetch_array($query)){
+							$i++;
+
+     						if ($i % 2 == 0){
+        						$cor = "#EBEBEB";
+        					}else{ 
+        						$cor = "#CCCCCC";
+        					}				
 				
-				echo " <tr>
-						<td>{$result['idUsuario']}</td>
+
+				echo " <tr bgcolor=".$cor.">
 						<td>{$result['loginUsuario']}</td>
 						<td>{$result['nomeUsuario']}</td>
 						<td>{$result['tipoPerfil']}</td>
@@ -50,12 +59,20 @@ if(isset($erro)){
 		
 	}else{
 	
-		$query = odbc_exec($db, 'SELECT * FROM Usuario');	
-			
+		$query = odbc_exec($db, 'SELECT * FROM Usuario');
+
+			$i = 0;
+
 			while ($result = odbc_fetch_array($query)){
+							$i++;
+
+     						if ($i % 2 == 0){
+        						$cor = "#EBEBEB";
+        					}else{ 
+        						$cor = "#CCCCCC";
+        					}
 				
-				echo " <tr>
-						<td>{$result['idUsuario']}</td>
+				echo " <tr bgcolor=".$cor.">
 						<td>{$result['loginUsuario']}</td>
 						<td>{$result['nomeUsuario']}</td>
 						<td>{$result['tipoPerfil']}</td>
@@ -65,6 +82,7 @@ if(isset($erro)){
 					</tr>";
 			}
 	}
+
+
 ?>
 </table><br><br>
-<center><a href='../logout'>Sair</a></center>

@@ -1,6 +1,8 @@
 <?php
-include('../menu/index.tpl.php');
+	ini_set ('odbc.defaultlrl', 9000000);
+	include('../menu/index.tpl.php');
 ?>
+
 <br><br><html>
 	<head>
 	<title>Loja Virtual</title>
@@ -10,8 +12,8 @@ include('../menu/index.tpl.php');
 	<body>
 		<form method="post" action="index.php" enctype="multipart/form-data">
 			Nome: <input type="text" name="nome"><br><br>
-			Descrição: <input type="text" name="descricao"><br><br>
-			Preço: <input type="text" name="preco"><br><br>
+			DescriÃ§Ã£o: <input type="text" name="descricao"><br><br>
+			PreÃ§o: <input type="text" name="preco"><br><br>
 			Desconto: <input type="text" name="desconto"><br><br>
 			Categoria: <select name="categoria">
 						<?php
