@@ -3,19 +3,18 @@
 	include('../menu/index.tpl.php');
 ?>
 
-<br><table width="80%">
-	<tr>
+<br><br><center><table width="90%">
+	<tr height="10px">
 		<th bgcolor="gray">Produto</th>
-		<th bgcolor="gray">Nome</th>
-		<th bgcolor="gray">DescriÃ§Ã£o</th>
-		<th bgcolor="gray">PreÃ§o</th>
-		<th bgcolor="gray">PromoÃ§Ã£o</th>
+		<th bgcolor="gray">Nome</th>		
+		<th bgcolor="gray">Descrição</th>
+		<th bgcolor="gray">Preço</th>
+		<th bgcolor="gray">Promoção</th>
 		<th bgcolor="gray">Estoque</th>
 		<th bgcolor="gray">Editar</th>
 		<th bgcolor="gray">Apagar</th>
 		<th bgcolor="gray"><a href='incluir_produto.php'>+ Novo Produto</a></th>
 	</tr>
-
 <?php
 
 include ('../db/index.php');
@@ -45,15 +44,15 @@ if(isset($erro)){
 
 			while ($result = odbc_fetch_array($query2)){
 				
-				echo " <tr bgcolor=".$cor.">
+				echo " <tr bgcolor=".$cor." align='center'>
 				<td><img width='200px' src=\"data:image/jpeg;base64,".base64_encode($result['imagem'])."\"/></td>
 				<td>{$result['nomeProduto']}</td>
 				<td>{$result['descProduto']}</td>
 				<td>{$result['precProduto']}</td>
 				<td>{$result['descontoPromocao']}</td>
 				<td>{$result['qtdMinEstoque']}</td>
-				<td><a href='index.php?acao=editar&id={$result['idProduto']}'>Editar</a></td>
-				<td><a href='index.php?acao=excluir&id={$result['idProduto']}'>Excluir</a></td>
+				<td><a href='index.php?acao=editar&id={$result['idProduto']}'><i style='color:black' class='fa fa-pencil' aria-hidden='true'></i></a></td>
+				<td><a href='index.php?acao=excluir&id={$result['idProduto']}'><i style='color:black' class='fa fa-trash-o' aria-hidden='true'></i></a></td>
 			</tr>";
 				
 			}
@@ -74,15 +73,15 @@ if(isset($erro)){
         						$cor = "#CCCCCC";
         					}
 			
-			echo " <tr bgcolor=".$cor.">
+			echo " <tr bgcolor=".$cor." align='center'>
 				<td><img width='200px' src=\"data:image/jpeg;base64,".base64_encode($result['imagem'])."\"/></td>
 				<td>{$result['nomeProduto']}</td>
 				<td>{$result['descProduto']}</td>
 				<td>{$result['precProduto']}</td>
 				<td>{$result['descontoPromocao']}</td>
 				<td>{$result['qtdMinEstoque']}</td>
-				<td><a href='index.php?acao=editar&id={$result['idProduto']}'>Editar</a></td>
-				<td><a href='index.php?acao=excluir&id={$result['idProduto']}'>Excluir</a></td>
+				<td><a href='index.php?acao=editar&id={$result['idProduto']}'><i style='color:black' class='fa fa-pencil' aria-hidden='true'></i></a></td>
+				<td><a href='index.php?acao=excluir&id={$result['idProduto']}'><i style='color:black' class='fa fa-trash-o' aria-hidden='true'></i></a></td>
 				</tr>";
 		
 		}
@@ -103,17 +102,17 @@ if(isset($erro)){
         						$cor = "#CCCCCC";
         					}
 		
-		echo " <tr bgcolor=".$cor.">
+		echo " <tr bgcolor=".$cor." align='center'>
 				<td><img width='200px' src=\"data:image/jpeg;base64,".base64_encode($result['imagem'])."\"/></td>
 				<td>{$result['nomeProduto']}</td>
 				<td>{$result['descProduto']}</td>
 				<td>{$result['precProduto']}</td>
 				<td>{$result['descontoPromocao']}</td>
 				<td>{$result['qtdMinEstoque']}</td>
-				<td><a href='index.php?acao=editar&id={$result['idProduto']}'>Editar</a></td>
-				<td><a href='index.php?acao=excluir&id={$result['idProduto']}'>Excluir</a></td>
+				<td><a href='index.php?acao=editar&id={$result['idProduto']}'><i style='color:black' class='fa fa-pencil' aria-hidden='true'></i></a></td>
+				<td><a href='index.php?acao=excluir&id={$result['idProduto']}'><i style='color:black' class='fa fa-trash-o' aria-hidden='true'></i></a></td>
 			</tr>";
 	}
 }
 ?>
-</table><br><br>
+</table></center>

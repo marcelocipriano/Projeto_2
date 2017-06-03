@@ -20,7 +20,7 @@ body {
 	box-shadow: 2px 2px 5px #ccc;
 }
 
-table {
+#tab {
 	margin-left:100px;
 }
 
@@ -43,30 +43,10 @@ table {
 	color: white;
 }
 
-.nav td ul a:hover {
-	border-left: 4px solid #69BE28;
-}
-
-.sub {
-	display: none;
-	list-style: none;
-}
-
-.nav td:hover .sub {
-	display: block;
-	width: 300px;
-	position: fixed;
-}
-
-.nav td:hover .sub li {
-	background: gray;
-}
-
-form {
-	width: 300px;
+#frmbusca {
 	float: right;
-	margin-right: 150px;
-	margin-top: -27px;
+	margin-right: 250px;
+	margin-top: -30px;
 }
 
 #texto {

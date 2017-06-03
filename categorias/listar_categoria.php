@@ -2,8 +2,8 @@
 	include('../menu/index.tpl.php');
 ?>
 
-<br><table width="80%">
-	<tr>
+<br><br><center><table width="80%">
+	<tr height="20px" style="color:black">
 		<th bgcolor="gray">Categoria</th>
 		<th bgcolor="gray">Descrição</th>
 		<th bgcolor="gray">Editar</th>
@@ -39,13 +39,13 @@ $query = odbc_exec($db, 'SELECT * FROM categoria');
         					}		
 
 
-		echo " <tr bgcolor=".$cor.">
+		echo " <tr bgcolor=".$cor." align='center'>
 				<td>{$result['nomeCategoria']}</td>
 				<td>{$result['descCategoria']}</td>
-				<td><a href='index.php?acao=editar&id={$result['idCategoria']}'>Editar</a></td>
-				<td><a href='index.php?acao=excluir&id={$result['idCategoria']}'>Excluir</a></td>
+				<td><a href='index.php?acao=editar&id={$result['idCategoria']}'><i style='color:black' class='fa fa-pencil' aria-hidden='true'></i></a></td>
+				<td><a href='index.php?acao=excluir&id={$result['idCategoria']}'><i style='color:black'class='fa fa-trash-o' aria-hidden='true'></i></a></td>
 			</tr>";
 	}
 
 ?>
-</table><br><br>
+</table></center>

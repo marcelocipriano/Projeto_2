@@ -4,17 +4,17 @@
 ?>
 <br><br><html>
 	<head>
-	<title>Loja Virtual</title>
-	<link rel="stylesheet" type="text/css" href="estilo_menu.css"/>
-	<meta charset="ISO-8859-1"/>
+	<title>Delta Sports</title>
+	<link rel="stylesheet" type="text/css" href="../layout/tab_produto.css"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	</head>
 	<body>
-		<form method="post" action="index.php" enctype="multipart/form-data">
-			Nome: <input type="text" name="nome" value="<?php echo $array_produto['nomeProduto']; ?>"><br><br>
-			DescriÃ§Ã£o: <input type="text" name="descricao" value="<?php echo $array_produto['descProduto']; ?>"><br><br>
-			PreÃ§o: <input type="text" name="preco" value="<?php echo $array_produto['precProduto']; ?>"><br><br>
-			Desconto: <input type="text" name="desconto" value="<?php echo $array_produto['descontoPromocao']; ?>"><br><br>
-			Categoria: <select name="categoria">
+		<form id="tab_produto" method="post" action="index.php" enctype="multipart/form-data">
+			Nome: &nbsp; &nbsp; &nbsp; <input class="tab_incluir" type="text" name="nome" value="<?php echo $array_produto['nomeProduto']; ?>"><br><br>
+			Descrição: <textarea class="tab_incluir" type="text" name="descricao">"<?php echo $array_produto['descProduto'];?>"</textarea><br><br>
+			Preço: &nbsp; &nbsp; &nbsp; &nbsp;<input class="tab_incluir" type="text" name="preco" value="<?php echo $array_produto['precProduto']; ?>"><br><br>
+			Desconto: &nbsp;<input class="tab_incluir" type="text" name="desconto" value="<?php echo $array_produto['descontoPromocao']; ?>"><br><br>
+			Categoria: &nbsp;<select name="categoria">
 						<?php
 						include ('../db/index.php');
 						$query = odbc_exec($db, 'SELECT * FROM categoria');
@@ -37,7 +37,7 @@
 					echo '<input type="checkbox" name="ativo">';
 				}
 				?><br><br>
-			Estoque: <input type="text" name="estoque" value="<?php echo $array_produto['qtdMinEstoque']; ?>"><br><br>
+			Estoque: &nbsp; &nbsp; <input class="tab_incluir" type="text" name="estoque" value="<?php echo $array_produto['qtdMinEstoque']; ?>"><br><br>
 			Imagem: <input type="file" name="imagem"><br><br>
 			<input type="submit" value="Gravar" name="btnGravarProduto">
 		</form>

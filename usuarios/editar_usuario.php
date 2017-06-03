@@ -1,16 +1,17 @@
 <?php
 include('../menu/index.tpl.php');
 ?>
+
 <br><br><html>
 	<head>
-	<title>Loja Virtual</title>
-	<link rel="stylesheet" type="text/css" href=""/>
+	<title>Delta Sports</title>
+	<link rel="stylesheet" type="text/css" href="../layout/tab_usuario.css"/>
 	<meta charset="ISO-8859-1"/>
 	</head>
 	<body>
-		<form method="post" action="index.php">
-			Nome: <input type="text" name="nome" value="<?php echo $array_usuario['nomeUsuario']; ?>"><br><br>
-			E-mail: <input type="email" name="email" value="<?php echo $array_usuario['loginUsuario']; ?>"><br><br>
+		<form id="tab_incluir" method="post" action="index.php">
+			Nome: <input class="n_incluir type="text" name="nome" value="<?php echo $array_usuario['nomeUsuario']; ?>"><br><br>
+			E-mail: <input class="n_incluir type="email" name="email" value="<?php echo $array_usuario['loginUsuario']; ?>"><br><br>
 			Senha: <input type="password" name="senha"><br><br>
 			Perfil: <select name="perfil"> <?php
 				if($array_usuario['tipoPerfil'] == 'A'){
@@ -40,7 +41,7 @@ include('../menu/index.tpl.php');
 			<input type="hidden" name="id" value="<?php echo $array_usuario['idUsuario']; ?>">
 			<input type="hidden" name="acao" value="editar">
 			<br><br>
-			<input type="submit" value="Gravar" name="btnGravarUsuario">
+			<input type="submit" value="Gravar" name="btnGravarUsuario" id="gravar">
 		</form>
 	</body>
 </html>

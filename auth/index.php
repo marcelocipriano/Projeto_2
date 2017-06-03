@@ -31,7 +31,7 @@ if(	isset($_POST['email']) &&
 					WHERE 
 					loginUsuario = '$email'
 					AND
-					senhaUsuario = '$senha'");
+					senhaUsuario = HASHBYTES('SHA1', '$senha')");
 	$result = odbc_fetch_array($query);
 	
 	if(	!empty($result['idUsuario']) &&

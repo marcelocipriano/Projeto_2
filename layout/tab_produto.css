@@ -1,0 +1,17 @@
+#tab_produto {
+	float: left;
+	margin-left: 50px;
+	width: 500px;
+}
+
+.tab_incluir {
+	width: 300px;
+}
+
+textarea {
+	height: 200px;
+}
+
+#gravar {
+	width: 50px;
+}

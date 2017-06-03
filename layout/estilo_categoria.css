@@ -1,0 +1,17 @@
+#tab_categoria {
+	float: left;
+	margin-left: 50px;
+	width: 500px;
+}
+
+.tab_incluir {
+	width: 300px;
+}
+
+textarea {
+	height: 100px;
+}
+
+#gravar {
+	width: 50px;
+}

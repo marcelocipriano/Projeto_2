@@ -70,11 +70,11 @@ if(isset($_REQUEST['acao'])){
 										usuarioAtivo = $ativo
 									WHERE
 										idUsuario = $idUsuario")){
-					$msg = "Usu&aacute;rio gravado com sucesso!";
+					$msg = "Usu&aacute;rio editado com sucesso!";
 					include('listar_usuario.php');
 					break;					
 				}else{
-					$erro = "Erro ao gravar o usu&aacute;rio!";
+					$erro = "Erro ao editar o usu&aacute;rio!";
 				}
 				echo odbc_errormsg($db);
 			}

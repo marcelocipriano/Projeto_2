@@ -2,11 +2,13 @@
 	<head>
 		<title>Delta Sports</title>
 		<link rel="stylesheet" type="text/css" href="../layout/estilo_menu.css"/>
+		<link rel="stylesheet" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 </head>
 <body>
 	<div id="rodape2"></div>
 	<div id="rodape">
-		<table>
+		<table id="tab">
 			<tr class="nav">
 				<td>
 					<a href="../usuarios/listar_usuario.php">Usu&aacute;rios</a>
@@ -23,7 +25,7 @@
 				</td>
 		</table>
 
-		<form name="frmBusca" method="post" action="../usuarios/index.php" >
+		<form id="frmbusca" name="frmBusca" method="post" action="../usuarios/index.php" >
 			<input type="text" name="nome" id="texto" placeholder="Buscar"/>
 			<input type="hidden" name="acao" value="buscar" >
 		    <input type="submit"  value="Buscar" id="btnBusca" name="buscar"/>

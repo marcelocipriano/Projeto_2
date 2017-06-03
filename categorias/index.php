@@ -47,11 +47,11 @@ if(isset($_REQUEST['acao'])){
 										descCategoria = '$descricao'
 									WHERE
 										idCategoria = $idCategoria")){
-					$msg = "Usu&aacute;rio gravado com sucesso!";
+					$msg = "Categoria gravada com sucesso!";
 					include('listar_categoria.php');
 					break;					
 				}else{
-					$erro = "Erro ao gravar o usu&aacute;rio!";
+					$erro = "Erro ao gravar categoria!";
 				}
 			}
 		

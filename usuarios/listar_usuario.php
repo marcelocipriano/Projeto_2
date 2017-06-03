@@ -2,9 +2,9 @@
 	include('../menu/index.tpl.php');
 ?>
 
-<br><table width="80%" border="0">
+<br><br><center><table width="80%">
 	<thead>
-	<tr valign="top">
+	<tr height="20px">
 		<th bgcolor="gray">Login</th>
 		<th bgcolor="gray">Nome</th>
 		<th bgcolor="gray">Perfil</th>
@@ -46,13 +46,13 @@ if(isset($erro)){
         					}				
 				
 
-				echo " <tr bgcolor=".$cor.">
+				echo " <tr bgcolor=".$cor." align='center'>
 						<td>{$result['loginUsuario']}</td>
 						<td>{$result['nomeUsuario']}</td>
 						<td>{$result['tipoPerfil']}</td>
 						<td>{$result['usuarioAtivo']}</td>
-						<td><a href='index.php?acao=editar&id={$result['idUsuario']}'>Editar</a></td>
-						<td><a href='index.php?acao=excluir&id={$result['idUsuario']}'>Excluir</a></td>
+						<td><a href='index.php?acao=editar&id={$result['idUsuario']}'><i style='color:black' class='fa fa-pencil' aria-hidden='true'></i></a></td>
+						<td><a href='index.php?acao=excluir&id={$result['idUsuario']}'><i style='color:black' class='fa fa-trash-o' aria-hidden='true'></i></a></td>
 					</tr>";
 				
 			}	
@@ -72,17 +72,17 @@ if(isset($erro)){
         						$cor = "#CCCCCC";
         					}
 				
-				echo " <tr bgcolor=".$cor.">
+				echo " <tr bgcolor=".$cor." align='center'>
 						<td>{$result['loginUsuario']}</td>
 						<td>{$result['nomeUsuario']}</td>
 						<td>{$result['tipoPerfil']}</td>
 						<td>{$result['usuarioAtivo']}</td>
-						<td><a href='index.php?acao=editar&id={$result['idUsuario']}'>Editar</a></td>
-						<td><a href='index.php?acao=excluir&id={$result['idUsuario']}'>Excluir</a></td>
+						<td><a href='index.php?acao=editar&id={$result['idUsuario']}'><i style='color:black' class='fa fa-pencil' aria-hidden='true'></i></a></td>
+						<td><a href='index.php?acao=excluir&id={$result['idUsuario']}'><i style='color:black' class='fa fa-trash-o' aria-hidden='true'></i></a></td>
 					</tr>";
 			}
 	}
 
 
 ?>
-</table><br><br>
+</table></center>
