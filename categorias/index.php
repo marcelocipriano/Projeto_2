@@ -35,10 +35,10 @@ if(isset($_REQUEST['acao'])){
 			if(isset($_POST['btnGravarCategoria'])){
 		
 				//trata nome
-				$nome = preg_replace("/[^a-zA-Z0-9 ]+/", "", $_POST['nome']);
+				$nome = utf8_decode($_POST['nome']);
 		
 				//trata a descrição
-				$descricao = preg_replace("/[^a-zA-Z0-9 ]+/", "", $_POST['descricao']);
+				$descricao = utf8_decode($_POST['descricao']);
 				
 				if(odbc_exec($db, "	UPDATE 
 										Categoria
@@ -79,10 +79,10 @@ if(isset($_REQUEST['acao'])){
 	if(isset($_POST['btnNovaCategoria'])){
 		
 		//Trata nome
-		$nome = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['nome']);
+		$nome = utf8_decode($_POST['nome']);
 		
 		//trata descrição
-		$descricao = preg_replace("/[^a-z A-Z 0-9 ]+/", "", $_POST['descricao']);
+		$descricao = utf8_decode($_POST['descricao']);
 		
 		if(odbc_exec($db, "INSERT INTO Categoria
 							(nomeCategoria,

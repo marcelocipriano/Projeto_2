@@ -4,16 +4,16 @@
 ?>
 
 <br><br><center><table width="90%">
-	<tr height="10px">
+	<tr height="20px">
 		<th bgcolor="gray">Produto</th>
 		<th bgcolor="gray">Nome</th>		
-		<th bgcolor="gray">Descrição</th>
-		<th bgcolor="gray">Preço</th>
-		<th bgcolor="gray">Promoção</th>
+		<th bgcolor="gray">Descri&ccedil;&atilde;o</th>
+		<th bgcolor="gray">Pre&ccedil;o</th>
+		<th bgcolor="gray">Promo&ccedil;&atilde;o</th>
 		<th bgcolor="gray">Estoque</th>
 		<th bgcolor="gray">Editar</th>
 		<th bgcolor="gray">Apagar</th>
-		<th bgcolor="gray"><a href='incluir_produto.php'>+ Novo Produto</a></th>
+		<th width="100px"><button><b><a style="bgcolor:gray; text-decoration:none; color:#69BE28" href='incluir_produto.php'>Novo Produto</a></b></button></th>
 	</tr>
 <?php
 
@@ -46,8 +46,8 @@ if(isset($erro)){
 				
 				echo " <tr bgcolor=".$cor." align='center'>
 				<td><img width='200px' src=\"data:image/jpeg;base64,".base64_encode($result['imagem'])."\"/></td>
-				<td>{$result['nomeProduto']}</td>
-				<td>{$result['descProduto']}</td>
+				<td>".utf8_encode($result['nomeProduto'])."</td>
+				<td>".utf8_encode($result['descProduto'])."</td>
 				<td>{$result['precProduto']}</td>
 				<td>{$result['descontoPromocao']}</td>
 				<td>{$result['qtdMinEstoque']}</td>
@@ -75,8 +75,8 @@ if(isset($erro)){
 			
 			echo " <tr bgcolor=".$cor." align='center'>
 				<td><img width='200px' src=\"data:image/jpeg;base64,".base64_encode($result['imagem'])."\"/></td>
-				<td>{$result['nomeProduto']}</td>
-				<td>{$result['descProduto']}</td>
+				<td>".utf8_encode($result['nomeProduto'])."</td>
+				<td>".utf8_encode($result['descProduto'])."</td>
 				<td>{$result['precProduto']}</td>
 				<td>{$result['descontoPromocao']}</td>
 				<td>{$result['qtdMinEstoque']}</td>
@@ -104,8 +104,8 @@ if(isset($erro)){
 		
 		echo " <tr bgcolor=".$cor." align='center'>
 				<td><img width='200px' src=\"data:image/jpeg;base64,".base64_encode($result['imagem'])."\"/></td>
-				<td>{$result['nomeProduto']}</td>
-				<td>{$result['descProduto']}</td>
+				<td>".utf8_encode($result['nomeProduto'])."</td>
+				<td>".utf8_encode($result['descProduto'])."</td>
 				<td>{$result['precProduto']}</td>
 				<td>{$result['descontoPromocao']}</td>
 				<td>{$result['qtdMinEstoque']}</td>

@@ -12,8 +12,8 @@
 	<body>
 		<form id="tab_produto" method="post" action="index.php" enctype="multipart/form-data">
 			Nome: &nbsp; &nbsp; &nbsp; <input class="tab_incluir" type="text" name="nome"><br><br>
-			Descrição: <textarea class="tab_incluir" type="text" name="descricao"></textarea><br><br>
-			Preço: &nbsp; &nbsp; &nbsp; &nbsp;<input class="tab_incluir" type="text" name="preco"><br><br>
+			Descri&ccedil;&atilde;o: <textarea class="tab_incluir" type="text" name="descricao"></textarea><br><br>
+			Pre&ccedil;o: &nbsp; &nbsp; &nbsp; &nbsp;<input class="tab_incluir" type="text" name="preco"><br><br>
 			Desconto: &nbsp;<input  class="tab_incluir" type="text" name="desconto"><br><br>
 			Categoria: &nbsp;<select name="categoria">
 						<?php

@@ -20,8 +20,16 @@ body {
 	box-shadow: 2px 2px 5px #ccc;
 }
 
+#logo {
+	width: 100px;
+	height: 40px;
+	margin-left: 10px;
+	margin-top: 5px;
+}
+
 #tab {
-	margin-left:100px;
+	margin-top: -43px;
+	margin-left:200px;
 }
 
 .nav {
@@ -45,7 +53,7 @@ body {
 
 #frmbusca {
 	float: right;
-	margin-right: 250px;
+	margin-right: 200px;
 	margin-top: -30px;
 }
 
@@ -56,7 +64,7 @@ body {
 #sair {
 	color: #69BE28;
 	float: right;
-	margin-right: 50px;
+	margin-right: 80px;
 	margin-top: -27px;
 	text-decoration: none;
 }

@@ -8,6 +8,7 @@
 <body>
 	<div id="rodape2"></div>
 	<div id="rodape">
+	<img id="logo" src="../layout/logoDelta.jpg"/>
 		<table id="tab">
 			<tr class="nav">
 				<td>
@@ -31,7 +32,7 @@
 		    <input type="submit"  value="Buscar" id="btnBusca" name="buscar"/>
 		</form>
 
-			<b><a id="sair" href='../logout'>Sair</a></b>
+			<b><a id="sair" href='../logout'><i id="logout" class="fa fa-sign-out fa-lg" aria-hidden="true"></i></a></b>
 		</div>	
 </body>
 </html>

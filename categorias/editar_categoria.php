@@ -9,8 +9,8 @@ include('../menu/index.tpl.php');
 	</head>
 	<body>
 		<form id="tab_categoria" method="post" action="index.php">
-			Nome: &nbsp; &nbsp; &nbsp; <input class="tab_incluir" type="text" name="nome" value="<?php echo $array_categoria['nomeCategoria']; ?>"><br><br>
-			Descrição: <textarea class="tab_incluir" type="text" name="descricao">"<?php echo $array_categoria['descCategoria']; ?>"</textarea><br><br>
+			Nome: &nbsp; &nbsp; &nbsp; <input class="tab_incluir" type="text" name="nome" value="<?php echo utf8_encode($array_categoria['nomeCategoria']); ?>"><br><br>
+			Descrição: <textarea class="tab_incluir" type="text" name="descricao">"<?php echo utf8_encode($array_categoria['descCategoria']); ?>"</textarea><br><br>
 			<input type="hidden" name="id" value="<?php echo $array_categoria['idCategoria']; ?>">
 			<input type="hidden" name="acao" value="editar">
 			<input type="submit" value="Gravar" name="btnGravarCategoria" id="gravar">

@@ -10,9 +10,9 @@
 	</head>
 	<body>
 		<form id="tab_produto" method="post" action="index.php" enctype="multipart/form-data">
-			Nome: &nbsp; &nbsp; &nbsp; <input class="tab_incluir" type="text" name="nome" value="<?php echo $array_produto['nomeProduto']; ?>"><br><br>
-			Descrição: <textarea class="tab_incluir" type="text" name="descricao">"<?php echo $array_produto['descProduto'];?>"</textarea><br><br>
-			Preço: &nbsp; &nbsp; &nbsp; &nbsp;<input class="tab_incluir" type="text" name="preco" value="<?php echo $array_produto['precProduto']; ?>"><br><br>
+			Nome: &nbsp; &nbsp; &nbsp; <input class="tab_incluir" type="text" name="nome" value="<?php echo utf8_encode($array_produto['nomeProduto']); ?>"><br><br>
+			Descri&ccedil;&atilde;o: <textarea class="tab_incluir" type="text" name="descricao">"<?php echo utf8_encode($array_produto['descProduto']);?>"</textarea><br><br>
+			Pre&ccedil;o: &nbsp; &nbsp; &nbsp; &nbsp;<input class="tab_incluir" type="text" name="preco" value="<?php echo $array_produto['precProduto']; ?>"><br><br>
 			Desconto: &nbsp;<input class="tab_incluir" type="text" name="desconto" value="<?php echo $array_produto['descontoPromocao']; ?>"><br><br>
 			Categoria: &nbsp;<select name="categoria">
 						<?php

@@ -1,5 +1,5 @@
 <?php
-include('../menu/index.tpl.php');
+	include('../menu/index.tpl.php');
 ?>
 
 <br><br><html>
@@ -10,7 +10,7 @@ include('../menu/index.tpl.php');
 	</head>
 	<body>
 		<form id="tab_incluir" method="post" action="index.php">
-			Nome: <input class="n_incluir type="text" name="nome" value="<?php echo $array_usuario['nomeUsuario']; ?>"><br><br>
+			Nome: <input class="n_incluir type="text" name="nome" value="<?php echo utf8_encode($array_usuario['nomeUsuario']); ?>"><br><br>
 			E-mail: <input class="n_incluir type="email" name="email" value="<?php echo $array_usuario['loginUsuario']; ?>"><br><br>
 			Senha: <input type="password" name="senha"><br><br>
 			Perfil: <select name="perfil"> <?php
@@ -38,7 +38,7 @@ include('../menu/index.tpl.php');
 					echo '<input type="checkbox" name="ativo">';
 				}
 				?>
-			<input type="hidden" name="id" value="<?php echo $array_usuario['idUsuario']; ?>">
+			<input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
 			<input type="hidden" name="acao" value="editar">
 			<br><br>
 			<input type="submit" value="Gravar" name="btnGravarUsuario" id="gravar">

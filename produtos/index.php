@@ -36,10 +36,10 @@ if(isset($_REQUEST['acao'])){
 			if(isset($_POST['btnGravarProduto'])){
 		
 				//Trata nome
-				$nome = $_POST['nome'];
+				$nome = utf8_decode($_POST['nome']);
 				
 				//Trata Descrição
-				$descricao = $_POST['descricao'];
+				$descricao = utf8_decode($_POST['descricao']);
 				
 				//Trata Preço
 				$preco = $_POST['preco'];
@@ -149,10 +149,10 @@ if(isset($_REQUEST['acao'])){
 	if(isset($_POST['btnNovoProduto'])){
 		
 		//Trata nome
-		$nome = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['nome']);
+		$nome = utf8_decode($_POST['nome']);
 		
 		//Trata Descrição
-		$descricao = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['descricao']);
+		$descricao = utf8_decode($_POST['descricao']);
 		
 		//Trata Preço
 		$preco = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['preco']);

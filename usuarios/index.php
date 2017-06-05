@@ -29,13 +29,13 @@ if(isset($_REQUEST['acao'])){
 			break;
 	
 		case 'editar':
-		
-			$idUsuario = is_numeric($_REQUEST['id']) ? $_REQUEST['id'] : 'NULL';
+	
+			$idUsuario = (int) $_REQUEST['id'];
 		
 			if(isset($_POST['btnGravarUsuario'])){
 		
 				//trata nome
-				$nome = preg_replace(	"/[^a-zA-Z0-9 ]+/", "", $_POST['nome']);
+				$nome = utf8_decode($_POST['nome']);
 		
 				//trata email
 				$email_exploded = 
@@ -59,7 +59,7 @@ if(isset($_REQUEST['acao'])){
 				!isset($_POST['ativo']) ? 0 : $_POST['ativo'];
 				$ativo = (bool) $_POST['ativo'];
 				$ativo = $ativo === true ? 1 : 0;
-				
+														
 				if(odbc_exec($db, "	UPDATE 
 										Usuario
 									SET
@@ -109,7 +109,9 @@ if(isset($_REQUEST['acao'])){
 
 				include('../produtos/listar_produto.php');	
 			}else{
-				echo "nada...";
+				include('../menu/index.tpl.php');
+				
+				echo "<br><center style='color:#69BE28'>Nenhum resutaldo encontrado! :(</center>";
 			}
 			break;
 		
@@ -123,7 +125,7 @@ if(isset($_REQUEST['acao'])){
 	if(isset($_POST['btnNovoUsuario'])){
 		
 		//Trata nome
-		$nome = preg_replace("/[^a-z A-Z 0-9]+/", "", $_POST['nome']);
+		$nome = utf8_decode($_POST['nome']);
 		
 		//Trata email
 		$email_exploded = explode('@',$_POST['email']);

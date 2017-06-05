@@ -8,7 +8,7 @@
 		<th bgcolor="gray">Descrição</th>
 		<th bgcolor="gray">Editar</th>
 		<th bgcolor="gray">Apagar</th>
-		<th bgcolor="gray"><a href='incluir_categoria.php'>+ Nova Categoria</a></th>
+		<th width="100px"><button><b><a style="bgcolor:gray; text-decoration:none; color:#69BE28" href='incluir_categoria.php'>Criar Categoria</a></b></button></th>
 	</tr>
 
 <?php
@@ -40,8 +40,8 @@ $query = odbc_exec($db, 'SELECT * FROM categoria');
 
 
 		echo " <tr bgcolor=".$cor." align='center'>
-				<td>{$result['nomeCategoria']}</td>
-				<td>{$result['descCategoria']}</td>
+				<td>".utf8_encode($result['nomeCategoria'])."</td>
+				<td>".utf8_encode($result['descCategoria'])."</td>
 				<td><a href='index.php?acao=editar&id={$result['idCategoria']}'><i style='color:black' class='fa fa-pencil' aria-hidden='true'></i></a></td>
 				<td><a href='index.php?acao=excluir&id={$result['idCategoria']}'><i style='color:black'class='fa fa-trash-o' aria-hidden='true'></i></a></td>
 			</tr>";
